@@ -1,6 +1,8 @@
 import { useCallback, useState, useEffect } from 'react';
 import { getExchangeRates } from '../api';
 import { CurrencyCodePicker } from './CurrencyCodePicker';
+import { AmountField } from './AmountField';
+import { RatesTable } from './RatesTable';
 
 const supportedCurrencies = ['USD', 'EUR', 'JPY', 'CAD', 'GBP', 'HUF'];
 export function Main() {
@@ -31,6 +33,12 @@ export function Main() {
           currencyCode={currencyCode}
           onChange={handleCurrencyChange}
         />
+      </section>
+      <section>
+        <AmountField amount={amount} onChange={handleAmountChange} />
+      </section>
+      <section>
+        <RatesTable amount={amount} currencyData={currencyData} />
       </section>
     </>
   );
