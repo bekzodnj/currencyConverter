@@ -1,13 +1,19 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getExchangeRates } from '../api';
 import { CurrencyCodePicker } from './CurrencyCodePicker';
 import { AmountField } from './AmountField';
 import { RatesTable } from './RatesTable';
 
+import { useSelector } from 'react-redux';
+
 const supportedCurrencies = ['USD', 'EUR', 'JPY', 'CAD', 'GBP', 'HUF'];
 export function Main() {
-  const [amount, setAmount] = useState('1.50');
-  const [currencyCode, setCurrentCode] = useState('USD');
+  // const [amount, setAmount] = useState('1.50');
+  // const [currencyCode, setCurrentCode] = useState('USD');
+
+  const amount = useSelector((state) => state.amount);
+  const currencyCode = useSelector((state) => state.currencyCode);
+
   const [currencyData, setCurrencyData] = useState({ USD: 1.0 });
 
   useEffect(() => {
@@ -17,8 +23,11 @@ export function Main() {
   }, [currencyCode]);
 
   const handleCurrencyChange = (e) => {
-    setCurrentCode(e.target.value);
+    setCurrencyCode(e.target.value);
   };
+
+  const setAmount = () => {};
+  const setCurrencyCode = () => {};
 
   const handleAmountChange = (e) => {
     setAmount(e.target.value);
