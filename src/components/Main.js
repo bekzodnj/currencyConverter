@@ -11,8 +11,8 @@ export function Main() {
   // const [amount, setAmount] = useState('1.50');
   // const [currencyCode, setCurrentCode] = useState('USD');
 
-  const amount = useSelector((state) => state.amount);
-  const currencyCode = useSelector((state) => state.currencyCode);
+  const amount = useSelector((state) => state.rates.amount);
+  const currencyCode = useSelector((state) => state.rates.currencyCode);
 
   const [currencyData, setCurrencyData] = useState({ USD: 1.0 });
 
