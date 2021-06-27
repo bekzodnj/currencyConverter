@@ -26,7 +26,7 @@ export function Main() {
 
   return (
     <>
-      <section>
+      <section className='header'>
         <h1>Exchange Rates</h1>
         <CurrencyCodePicker
           supportedCurrencies={supportedCurrencies}
