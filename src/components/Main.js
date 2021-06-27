@@ -5,14 +5,12 @@ import { AmountField } from './AmountField';
 import { RatesTable } from './RatesTable';
 
 import { useSelector } from 'react-redux';
+import { getAmount, getCurrencyCode } from '../store/rates';
 
 const supportedCurrencies = ['USD', 'EUR', 'JPY', 'CAD', 'GBP', 'HUF'];
 export function Main() {
-  // const [amount, setAmount] = useState('1.50');
-  // const [currencyCode, setCurrentCode] = useState('USD');
-
-  const amount = useSelector((state) => state.rates.amount);
-  const currencyCode = useSelector((state) => state.rates.currencyCode);
+  const amount = useSelector(getAmount);
+  const currencyCode = useSelector(getCurrencyCode);
 
   const [currencyData, setCurrencyData] = useState({ USD: 1.0 });
 
