@@ -6,6 +6,7 @@ export function getExchangeRates(base, supportedCurrencies) {
     .filter((currency) => currency !== base)
     .join();
 
+  // make request to mock api
   const url = `http://api.exchangeratesapi.io/latest?base=${base}&symbols=${currencies}`;
   return fetch(url)
     .then((res) => res.json())

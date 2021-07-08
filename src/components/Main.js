@@ -4,6 +4,7 @@ import { CurrencyCodePicker } from './CurrencyCodePicker';
 import { AmountField } from './AmountField';
 import { RatesTable } from './RatesTable';
 
+// redux import
 import { useSelector } from 'react-redux';
 import { getAmount, getCurrencyCode } from '../store/rates';
 
